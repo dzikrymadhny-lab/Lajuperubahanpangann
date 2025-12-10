@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panduan Pengguna — Panel Harga Pangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="helpBtn" class="help-floating" title="Panduan">?</button>
+
+  <header>
+    <h1>Panduan Pengguna</h1>
+    <p class="muted">Langkah-langkah singkat cara memakai fitur aplikasi ini.</p>
+  </header>
+
+  <main class="container single">
+    <div class="panel">
+      <h3>Cara Pakai</h3>
+      <ol>
+        <li>Buka <strong>Halaman Harga</strong> — pilih kota & komoditas.</li>
+        <li>Grafik 30 hari akan dimuat. Hover titik untuk melihat laju perubahan (Rp/hari).</li>
+        <li>Masukkan harga yang Anda bayar → tekan <em>Simpan Input User</em> untuk masuk riwayat.</li>
+        <li>Buka <strong>Riwayat</strong> untuk melihat perbandingan harga Anda terhadap model prediksi.</li>
+        <li>Buka <strong>Kalkulus</strong> untuk membaca definisi limit, turunan, dan cara beda-tengah dari definisi limit.</li>
+      </ol>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <a class="nav-btn" href="index.html">Beranda</a>
+        <a class="nav-btn" href="harga.html">Buka Harga</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-content">
+      <h2>Panduan Cepat</h2>
+      <p>Gunakan tombol <kbd>?</kbd> untuk membuka panduan singkat di halaman mana pun.</p>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px">
+        <button id="guideClose">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

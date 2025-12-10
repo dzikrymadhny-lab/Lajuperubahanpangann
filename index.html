@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beranda — Panel Harga Pangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="helpBtn" class="help-floating" title="Panduan">?</button>
+
+  <header>
+    <h1>Panel Harga Pangan & Kalkulus Laju Perubahan</h1>
+    <p class="muted">Aplikasi tugas: menampilkan grafik harga mock, laju perubahan (turunan) & riwayat input pengguna.</p>
+  </header>
+
+  <main class="container single">
+    <div class="panel">
+      <h3>Selamat datang</h3>
+      <p>Ini adalah versi final website untuk tugas Kalkulus Diferensial. Gunakan navigasi di bawah untuk membuka halaman yang diinginkan:</p>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+        <a class="nav-btn" href="harga.html">Halaman Harga (Grafik)</a>
+        <a class="nav-btn" href="kalkulus.html">Kalkulus (Penjelasan & Analisis)</a>
+        <a class="nav-btn" href="riwayat.html">Riwayat Input User</a>
+        <a class="nav-btn" href="panduan.html">Panduan Lengkap</a>
+      </div>
+
+      <h4 style="margin-top:18px">Catatan Singkat</h4>
+      <ul class="small-muted">
+        <li>Semua kontrol (kota / komoditas / unit) disimpan otomatis — pindah halaman tidak mereset pilihan.</li>
+        <li>Data harga: <strong>mock otomatis</strong> (realistis) — cukup untuk tugas kalkulus.</li>
+        <li>Penjelasan laju perubahan (turunan) muncul langsung dari data grafik.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Guide overlay (re-usable) -->
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-content">
+      <h2>Panduan singkat</h2>
+      <ol>
+        <li>Buka <strong>Halaman Harga</strong> untuk melihat grafik.</li>
+        <li>Pilih Kota & Komoditas — grafik menyesuaikan.</li>
+        <li>Hover titik grafik untuk melihat aproksimasi turunan (laju perubahan).</li>
+        <li>Masukkan harga yang Anda bayar → Simpan → cek <strong>Riwayat</strong>.</li>
+      </ol>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px">
+        <button id="guideClose">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

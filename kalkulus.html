@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kalkulus — Laju Perubahan Harga</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="helpBtn" class="help-floating" title="Panduan">?</button>
+
+  <header>
+    <h1>Kalkulus Diferensial — Turunan & Laju Perubahan</h1>
+    <p class="muted">Penjelasan formal dan penerapan pada data harga dari Halaman Harga.</p>
+  </header>
+
+  <div class="container">
+    <div>
+      <div class="panel">
+        <h3>Kontrol (sinkron dengan Harga)</h3>
+        <label for="citySelect">Kota</label>
+        <select id="citySelect"></select>
+
+        <label for="itemSelect">Komoditas</label>
+        <select id="itemSelect"></select>
+
+        <label for="unitSelect">Unit</label>
+        <select id="unitSelect">
+          <option value="kg">kg</option>
+          <option value="liter">liter</option>
+          <option value="butir">butir</option>
+        </select>
+
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <a class="nav-btn" href="harga.html">Buka Harga</a>
+          <a class="nav-btn" href="riwayat.html">Buka Riwayat</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Ringkasan Inti</h3>
+        <div id="summaryText" class="small-muted" style="white-space:pre-wrap"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Analisis Titik (Hover Grafik)</h3>
+        <div id="dataPanel" class="small-muted" style="white-space:pre-wrap">Hover grafik untuk melihat laju perubahan per titik.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h3>Grafik Harga (sinkron)</h3>
+        <div class="chart-wrap panel" style="padding:8px;height:420px">
+          <canvas id="priceChart" style="width:100%;height:100%"></canvas>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Kalkulus Formal</h3>
+        <div id="calcPanel" class="small-muted" style="white-space:pre-wrap"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Interpretasi & Rekomendasi</h3>
+        <div id="recommendBox" class="small-muted">Rekomendasi otomatis berdasarkan laju perubahan akan muncul di sini.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-content">
+      <h2>Panduan singkat</h2>
+      <ol>
+        <li>Page ini menerangkan konsep turunan & limit secara formal.</li>
+        <li>Hover grafik untuk melihat laju perubahan yang diaplikasikan.</li>
+      </ol>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px">
+        <button id="guideClose">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

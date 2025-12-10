@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harga — Panel Harga Pangan</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="helpBtn" class="help-floating" title="Panduan">?</button>
+
+  <header>
+    <h1>Grafik Harga Pangan & Laju Perubahan</h1>
+    <p class="muted">Pilih kota & komoditas — grafik menampilkan 30 hari terakhir (mock) dan laju perubahan otomatis.</p>
+  </header>
+
+  <div class="container">
+    <!-- Left controls -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="panel">
+        <h3>Kontrol Data</h3>
+
+        <label for="citySelect">Kota / Kabupaten</label>
+        <select id="citySelect"></select>
+
+        <label for="itemSelect">Komoditas</label>
+        <select id="itemSelect"></select>
+
+        <label for="unitSelect">Unit</label>
+        <select id="unitSelect">
+          <option value="kg">kg</option>
+          <option value="liter">liter</option>
+          <option value="butir">butir</option>
+        </select>
+
+        <label for="timeSelect">Waktu Laporan (referensi)</label>
+        <select id="timeSelect">
+          <option value="sebulan">1 bulan lalu</option>
+          <option value="3minggu">3 minggu lalu</option>
+          <option value="2minggu">2 minggu lalu</option>
+          <option value="minggu">1 minggu lalu</option>
+          <option value="kemarin">Kemarin</option>
+          <option value="hariini">Hari ini</option>
+        </select>
+
+        <label for="userPrice">Harga (Rp)</label>
+        <input id="userPrice" type="number" placeholder="Masukkan angka (tanpa titik)" />
+
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button id="btnSave">Simpan Input User</button>
+          <button id="clearHistory" class="danger">Hapus History</button>
+        </div>
+
+      </div>
+
+      <div class="panel">
+        <h3>Riwayat Input Singkat</h3>
+        <div id="historyList" class="history"><p class="muted">Belum ada input user.</p></div>
+      </div>
+
+      <div class="panel">
+        <h3>Prediksi & Nasional</h3>
+        <p class="small">Prediksi sederhana (regresi linear) & ringkasan nasional (fallback mock).</p>
+        <div id="predSummary" class="muted" style="margin-top:6px"></div>
+        <div class="card-small" style="margin-top:10px">
+          <strong>Harga Nasional (otomatis)</strong>
+          <div id="nationalBox" class="small muted" style="margin-top:6px">Memuat...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="panel">
+        <h3>Grafik Harga & Prediksi</h3>
+        <div class="chart-wrap panel" style="padding:8px;height:420px">
+          <canvas id="priceChart" style="width:100%;height:100%"></canvas>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+          <button id="resetZoom">Reset Zoom</button>
+          <div class="small" style="margin-left:auto">Hover titik untuk analisis laju perubahan.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Penjelasan Singkat — Laju Perubahan</h3>
+        <div id="explainBox" class="small muted" style="white-space:pre-wrap">Informasi laju perubahan akan tampil di sini (default: titik terakhir).</div>
+      </div>
+
+      <div class="panel">
+        <h3>Aksi</h3>
+        <div style="display:flex;gap:8px">
+          <a class="nav-btn" href="kalkulus.html">Buka Kalkulus</a>
+          <a class="nav-btn" href="riwayat.html">Buka Riwayat</a>
+          <a class="nav-btn" href="index.html">Beranda</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- guide overlay -->
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-content">
+      <h2>Panduan singkat</h2>
+      <ol>
+        <li>Pilih kota & komoditas, grafik akan menyesuaikan.</li>
+        <li>Hover titik grafik untuk melihat laju perubahan (aproksimasi beda depan/belakang/tengah).</li>
+        <li>Masukkan harga Anda lalu simpan untuk melihat di Riwayat.</li>
+      </ol>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px">
+        <button id="guideClose">Mulai</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

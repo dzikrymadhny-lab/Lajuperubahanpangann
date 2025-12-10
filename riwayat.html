@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Riwayat Input — Panel Harga Pangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="helpBtn" class="help-floating" title="Panduan">?</button>
+
+  <header>
+    <h1>Riwayat Input User</h1>
+    <p class="muted">Daftar harga yang Anda simpan — lengkap dengan perbandingan terhadap prediksi model.</p>
+  </header>
+
+  <main class="container single">
+    <div class="panel">
+      <h3>Riwayat</h3>
+      <div id="historyList" class="history small-muted">Belum ada input user.</div>
+
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <a class="nav-btn" href="harga.html">Kembali ke Harga</a>
+        <a class="nav-btn" href="kalkulus.html">Buka Kalkulus</a>
+        <button id="clearHistory" class="danger">Hapus Semua Riwayat</button>
+      </div>
+
+      <div style="margin-top:12px" class="small-muted">
+        <strong>Catatan:</strong> riwayat disimpan di browser (localStorage). Hapus jika ingin reset.
+      </div>
+    </div>
+  </main>
+
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-content">
+      <h2>Panduan singkat</h2>
+      <ol>
+        <li>Riwayat menyertakan perbandingan terhadap prediksi 7-hari dari grafik saat ini.</li>
+        <li>Pastikan sebelumnya Anda telah menyimpan beberapa input di Halaman Harga.</li>
+      </ol>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px">
+        <button id="guideClose">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
