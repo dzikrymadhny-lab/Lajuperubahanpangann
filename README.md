@@ -1,0 +1,1 @@
+# Lajuperubahanpangann
